@@ -1,15 +1,19 @@
 name: test
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - "master"
+      - "develop"
+  pull_request:
+    branches:
+      - "master"
 
 env:
   FOUNDRY_PROFILE: ci
 
 jobs:
   check:
-    strategy:
-      fail-fast: true
-
     name: Foundry project
     runs-on: ubuntu-latest
     steps:
